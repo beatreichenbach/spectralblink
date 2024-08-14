@@ -1,0 +1,30 @@
+[project]
+name = "sepctralblink"
+description = "Spectral Reconstruction for BlinkScript"
+version = "0.0.1"
+authors = [
+    {name = "Beat Reichenbach"}
+]
+dependencies = [
+    "numpy",
+    "opencv-python-headless"
+]
+requires-python = ">=3.9, <3.11"
+license = {text = "MIT"}
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "python-semantic-release"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["spectralblink*"]
+
+[tool.black]
+skip-string-normalization = true
