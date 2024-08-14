@@ -17,7 +17,7 @@ pip install spectralblink@https://github.com/beatreichenbach/spectralblink/archi
 ## Usage
 
 ```shell
-python -m spectralblink --input "models/aces2065_1.coeffs" --output "output/"
+python -m spectralblink --input "models/aces2065_1.coeff" --output "output/"
 ```
 
 ## Contributing

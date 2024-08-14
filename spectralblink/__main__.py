@@ -22,8 +22,8 @@ def argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         '--log',
-        type=int,
-        default=logging.WARNING,
+        type=str,
+        default='INFO',
         help='logging level',
     )
     return parser
@@ -32,6 +32,7 @@ def argument_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = argument_parser()
     args = parser.parse_args(sys.argv[1:])
+    logging.basicConfig(level=args.log, force=True)
 
     write_model(args.input, args.output)
 
