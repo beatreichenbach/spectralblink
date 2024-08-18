@@ -110,11 +110,8 @@ def reconstruct(array: np.ndarray, model: RGB2Spec) -> np.ndarray:
     lambda_min = 360
     lambda_max = 830
     lambda_count = 10
-    standard_illuminant = 'D65'
+    standard_illuminant = 'D60'
     cmfs_variation = 'CIE 2015 2 Degree Standard Observer'
-
-    whitepoint = color.get_whitepoint(standard_illuminant=standard_illuminant)
-    logging.info(f'{whitepoint=}')
 
     lambdas = np.linspace(lambda_min, lambda_max, lambda_count)
     logging.info(f'{lambdas=}')
@@ -124,9 +121,6 @@ def reconstruct(array: np.ndarray, model: RGB2Spec) -> np.ndarray:
 
     illuminant = color.get_illuminant(standard_illuminant, lambdas)
     logging.info(f'{illuminant=}')
-
-    xyz_table = cmfs * illuminant[:, np.newaxis]
-    xyz_table /= np.sum(xyz_table, axis=0)
 
     reconstructed = np.zeros(array.shape)
     k = np.sum(cmfs * illuminant[:, np.newaxis], axis=0)

@@ -13,12 +13,12 @@ def test_write_model():
 
 def test_reconstruct_pattern():
     project_dir = os.path.dirname(os.path.dirname(__file__))
-    model_path = os.path.join(project_dir, 'models', 'aces2065_1.coeff')
+    model_path = os.path.join(project_dir, 'models', 'srgb.coeff')
     output_path = os.path.join(project_dir, 'output', 'pattern.exr')
     reconstruct_pattern(model_path, output_path)
 
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, force=True)
-    test_write_model()
+    # test_write_model()
     test_reconstruct_pattern()
